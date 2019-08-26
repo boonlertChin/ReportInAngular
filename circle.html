@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <script type = "text/javascript" src = "https://d3js.org/d3.v4.min.js"></script>
+      <style>
+         body { font-family: Arial; }
+      </style>
+   </head>
+
+   <body>      
+       <!-- 
+           The attributes of circle are as follows −
+
+            cx − This is the x-coordinate of the center of the circle.
+
+            cy − This is the y-coordinate of the center of the circle.
+
+            r − This denotes the radius of the circle.
+       -->
+      <div class="panal1"  id = "svgcontainer1">
+          <h1>panal1</h1>
+         <svg width = "300" height = "300">          
+            <circle cx = "200" cy = "100" r = "100"></circle> 
+         </svg>
+      </div>
+
+      <h1 class="panal21">panal1</h1>
+      <div class="panal2" id = "svgcontainer"></div>      
+      <script>
+         var width = 300;
+         var height = 300;
+         //Create SVG element
+         var svg = d3.select("#svgcontainer")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+         //Append circle 
+         svg.append("circle")
+            .attr("cx", 200)
+            .attr("cy", 100)
+            .attr("r", 100)
+            .attr("fill", "green");
+      </script>
+
+        <script language = "javascript">
+              d3.select(".panal1").transition().style("background-color", "green");
+              d3.select(".panal2").transition().style("background-color", "lightblue");
+              d3.select(".panal21").transition().style("background-color", "lightblue");
+        </script>
+        
+   </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <script type = "text/javascript" src = "https://d3js.org/d3.v4.min.js"></script>
+      <style>
+         body { font-family: Arial; }
+      </style>
+   </head>
+
+   <body>
+      
+         <!-- Create a SVG image and set width as 300 pixel and height as 300 pixel.-->
+         <!-- Here, the line tag draws a line and its attributes x1, y1 refers to the starting 
+                point and x2, y2 refers to the ending point. The style attribute sets color and 
+                thickness of the line using the stroke and the stroke-width styles.
+
+                x1 − This is the x-coordinate of the first point.
+                y1 − This is the y-coordinate of the first point.
+                x2 − This is the x-coordinate of the second point.
+                y2 − This is the y-coordinate of the second point.
+                stroke − Color of the line.
+                stroke-width − Thickness of the line.-->
+      <div class="rectangle1"  id = "svgcontainer1">
+          <h1>ractangle1</h1>
+         <svg width = "300" height = "300">          
+            <rect x = "20" y = "20" width = "100" height = "100" fill = "blue"></rect>
+         </svg>
+      </div>
+
+      
+      <div class="rectangle2" id = "svgcontainer2"><h1>ractangle2</h1></div>
+        <script language = "javascript">
+           var width = 300;
+           var height = 300;
+           var svg2 = d3.select("#svgcontainer2")
+              .append("svg")
+              .attr("width", width)
+              .attr("height", height);
+           svg2.append("rect")
+              .attr("x", 20)
+              .attr("y", 20)
+              .attr("width",100) 
+              .attr("height",100)
+              .attr("fill","blue");
+              d3.select(".rectangle1").transition().style("background-color", "green");
+              d3.select(".rectangle2").transition().style("background-color", "lightblue");
+        </script>
+        
+   </body>
+</html>
