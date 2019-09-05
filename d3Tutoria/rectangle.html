@@ -23,7 +23,7 @@
       <div class="rectangle1"  id = "svgcontainer1">
           <h1>ractangle1</h1>
          <svg width = "300" height = "300">          
-            <rect x = "20" y = "20" width = "100" height = "100" fill = "blue"></rect>
+            <rect x = "20" y = "20" width = "100" height = "100" fill = "blue"  transform = "translate(60 60) rotate(45)"></rect>
          </svg>
       </div>
 
@@ -41,7 +41,10 @@
               .attr("y", 20)
               .attr("width",100) 
               .attr("height",100)
-              .attr("fill","blue");
+              .attr("fill","blue")
+              ;
+
+
               d3.select(".rectangle1").transition().style("background-color", "green");
               d3.select(".rectangle2").transition().style("background-color", "lightblue");
         </script>

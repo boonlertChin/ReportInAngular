@@ -1,0 +1,51 @@
+<html>
+   <head>
+      <script type = "text/javascript" src = "https://d3js.org/d3.v4.min.js"></script>
+      <style>
+         svg rect {
+            fill: gray;
+         }
+         
+         svg text {
+            fill: yellow;
+            font: 12px sans-serif;
+            text-anchor: end;
+         }
+      </style>
+   </head>
+
+   <body>
+      <script>
+         var data = [10, 5, 12, 15];
+         
+         var width = 300 
+            scaleFactor = 20, 
+            barHeight = 30;
+         
+         var graph = d3.select("body")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", barHeight * data.length);//30*4=120
+         
+         //Here, each bar inside corresponds with an element. Therefore, we create group elements. Each of our group elements needs to be positioned one below the other to build a horizontal bar chart. Let us take a transformation formula index * bar height.
+         var bar = graph.selectAll("g")
+            .data(data)
+            .enter()
+            .append("g")
+            .attr("transform", function(d, i) {
+               return "translate(0," + i * barHeight + ")";//move 1*30 2*30 3*30 4*30
+            });
+
+         bar.append("rect").attr("width", function(d) {
+            return d * scaleFactor;
+         })         
+         .attr("height", barHeight - 1);
+         
+         bar.append("text")
+            .attr("x", function(d) { return (d*scaleFactor); })
+            .attr("y", barHeight / 2)
+            .attr("dy", ".35em")
+            .text(function(d) { return d; });
+      </script>
+   </body>
+</html>
